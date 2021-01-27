@@ -1,0 +1,30 @@
+#!/bin/sh
+echo "Welcome to easy-dd"
+sleep 1
+echo "このソフトを使用すると簡単にDDコマンドを使用することができます。"
+echo "続行するにはエンターを押してください"
+read hogehogehogehoge
+
+echo "DDコマンドは非常に危険なコマンドです"
+echo "実行にあたり十分注意をして使用するようにしてください。"
+sleep 1
+echo "管理者権限をしようするためパスワードを入力してください。"
+sudo echo "管理者権限へのアクセスが成功しました。"
+sleep 1
+echo "読み込むファイルやデバイスのパスを入力してください"
+read ifif
+echo "書き込むファイルやデバイスのパスを入力してください"
+read ofof
+
+echo "dd if=${ifif} of=${ofof}を実行しますか？"
+echo -n "[Y/n]:"
+read ANS
+
+case $ANS in
+  "" | [Yy]* )
+    sudo dd if=${ifif} of=${ofof}
+    ;;
+  * )
+   exit
+    ;;
+esac
